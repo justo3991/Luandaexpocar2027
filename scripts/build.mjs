@@ -6,7 +6,7 @@ const coreSrc=readFileSync('site-core.js','utf8');
 const dataContext={window:{}};
 runInNewContext(dataSrc,dataContext,{timeout:3000});
 const pages=Object.keys(dataContext.window.LEC_DATA);
-if(pages.length!==25)throw new Error('Expected 25 pages, found '+pages.length);
+if(pages.length!==26)throw new Error('Expected 26 pages, found '+pages.length);
 rmSync('dist',{recursive:true,force:true});
 mkdirSync('dist',{recursive:true});
 for(const file of ['site.css','lec-home.css','site-data.js','site-core.js','ceo-justo-eliseu.webp'])copyFileSync(file,join('dist',file));
