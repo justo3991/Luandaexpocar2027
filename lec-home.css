@@ -46,3 +46,30 @@
 @media(max-width:1248px){.lec-highlight,.lec-extra{margin-left:24px;margin-right:24px}}
 @media(max-width:760px){.lec-highlight{grid-template-columns:1fr}.lec-highlight-art{min-height:104px}.lec-highlight-art b{font-size:36px}.lec-highlight-art span{font-size:118px;bottom:-40px}.lec-highlight-row{grid-template-columns:1fr 1fr}.lec-highlight-row .action{justify-self:start}.lec-news-card{min-height:250px}.lec-portrait{height:240px}}
 @media(max-width:620px){.lec-news-grid{grid-template-columns:1fr}.lec-news-card{aspect-ratio:1.3;min-height:220px}.lec-speaker-grid{grid-template-columns:1fr 1fr}.lec-portrait{height:200px}.lec-logo-strip{grid-template-columns:repeat(2,1fr)}.lec-logo-strip>div:nth-child(2){border-right:0}.lec-logo-strip>div:nth-child(-n+2){border-bottom:1px solid #D7D7DB}.lec-highlight-row{grid-template-columns:1fr 1fr}.lec-highlight-main{padding:15px}.lec-extra{margin-left:18px;margin-right:18px}.lec-highlight{margin-left:18px;margin-right:18px}}
+
+
+/* Contact directory, CEO statement and categorised brand mosaic */
+.lec-team-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid #d7d7db;border-left:1px solid #d7d7db}
+.lec-team-card{background:#fff;border-right:1px solid #d7d7db;border-bottom:1px solid #d7d7db;overflow:hidden}
+.lec-team-photo{height:255px;display:grid;place-items:center;background:linear-gradient(145deg,#5b1a8c,#8e1fc4 55%,#1d3e9e);color:#fff;position:relative}
+.lec-team-photo:after{content:"»»";font-size:70px;color:#ffffff38;position:absolute;bottom:-10px;right:14px}
+.lec-team-photo span{font-size:12px;border:1px dashed #ffffff88;padding:12px}
+.lec-team-body{padding:20px;display:flex;flex-direction:column;align-items:flex-start;gap:7px;min-height:184px}
+.lec-team-body small{font-size:11px;color:#5b1a8c}.lec-team-body h3{font-size:20px;font-weight:400;margin:5px 0}
+.lec-team-body strong{font-size:14px;font-weight:500}.lec-team-body p{font-size:12px;color:#5c5c66;margin:0}
+.lec-team-body a{font-size:12px;color:#5b1a8c;margin-top:auto}.lec-team-body a:hover{text-decoration:underline}
+.lec-ceo-grid{display:grid;grid-template-columns:35% 65%;max-width:1200px;margin:auto;background:#fff}
+.lec-ceo-photo{min-height:375px;display:grid;place-items:center;background:linear-gradient(140deg,#5b1a8c,#8e1fc4);color:#fff;font-size:14px}
+.lec-ceo-copy{padding:42px;display:flex;flex-direction:column;justify-content:center}
+.lec-ceo-copy small{font-size:11px;color:#5b1a8c}.lec-ceo-copy h2{font-size:28px;margin:13px 0 16px;font-weight:400}
+.lec-ceo-copy blockquote{font-size:17px;line-height:1.7;font-weight:400;margin:0 0 22px;border-left:3px solid #ffc928;padding-left:20px}
+.lec-ceo-copy p{font-size:13px;color:#5c5c66}.lec-ceo-copy .disclaimer{color:#5b1a8c;font-size:11px;margin-top:8px!important}
+.lec-contact-ctas{display:flex;flex-wrap:wrap;gap:12px;max-width:1200px;margin:auto;padding-top:16px}
+.lec-contact-ctas .action{background:#ffc928!important;color:#1a1a1a!important;border:0!important;border-radius:50px;padding:11px 22px;font-size:13px;font-weight:600;min-height:38px}
+.lec-brand-mosaic{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid #d7d7db;border-left:1px solid #d7d7db}
+.lec-brand-item{min-height:156px;background:#f7f7f8;border-right:1px solid #d7d7db;border-bottom:1px solid #d7d7db;padding:17px;display:flex;flex-direction:column;justify-content:space-between;align-items:center;text-align:center;gap:10px}
+.lec-brand-item small{font-size:11px;color:#5c5c66;font-weight:400}.lec-brand-item small:last-child{align-self:flex-end;color:#8e1fc4}
+.lec-brand-item span{font-size:12px;padding:12px;color:#5c5c66;border:1px dashed #b5aab9}
+.lec-brand-item:nth-child(4n+2){background:#efeff1}.lec-brand-item:nth-child(4n+3){background:#ffffff}
+@media(max-width:800px){.lec-team-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.lec-ceo-grid{grid-template-columns:1fr}.lec-ceo-photo{min-height:280px}.lec-brand-mosaic{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:540px){.lec-team-grid{grid-template-columns:1fr 1fr}.lec-team-photo{height:185px}.lec-team-body{padding:14px}.lec-team-body h3{font-size:17px}.lec-ceo-copy{padding:26px}.lec-brand-mosaic{grid-template-columns:repeat(2,1fr)}.lec-brand-item{min-height:135px;padding:12px}.lec-contact-ctas{flex-direction:column;align-items:flex-start}}
