@@ -112,3 +112,40 @@
 .lec-program-empty{font-size:14px;padding:25px;background:#efeff1;color:#5c5c66}
 @media(max-width:780px){.lec-program-filters{align-items:stretch;flex-direction:column}.lec-program-search-label{width:100%}.lec-program-search-label input{width:100%}.lec-day-tab{min-height:84px}.lec-day-tab strong{font-size:26px}.lec-day-panel .lec-program-day-heading{align-items:start;flex-direction:column;gap:4px}}
 @media(max-width:540px){.lec-day-tabs{gap:3px}.lec-day-tab{padding:8px 2px;min-height:75px}.lec-day-tab strong{font-size:22px}.lec-day-tab small{font-size:9px}.lec-category-filters{gap:5px}.lec-filter{font-size:11px;padding:7px 10px}.lec-session summary{grid-template-columns:31px 1fr 22px;gap:9px;padding:16px 4px}.lec-session-summary strong{font-size:17px}.lec-session-detail{padding:0 8px 22px 39px}.lec-session-meta{grid-template-columns:1fr}.lec-program-day-heading h3{font-size:22px}}
+
+
+/* Homepage commercial conversion — existing LEC 2027 visual system */
+.lec-hero-actions{gap:10px;align-items:center;flex-wrap:wrap}
+.lec-hero-actions .action{white-space:normal;text-align:center;font-size:13px}
+.lec-conversion{margin:27px auto 15px;padding:0}
+.lec-conversion-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0}
+.lec-conversion-card{padding:25px;min-height:225px;color:#fff;display:flex;flex-direction:column;justify-content:space-between;gap:18px;position:relative;overflow:hidden}
+.lec-conversion-card:after{content:"»»";position:absolute;font-size:85px;right:-7px;bottom:-21px;color:#ffffff29;pointer-events:none}
+.lec-conversion-exhibitor{background:linear-gradient(120deg,#5B1A8C,#8E1FC4)}
+.lec-conversion-sponsor{background:#1D3E9E}
+.lec-conversion-ticket{background:#3FA47A}
+.lec-conversion-card small{font-size:11px;font-weight:400;letter-spacing:.035em}
+.lec-conversion-card h3{font-size:20px;line-height:1.28;font-weight:400;color:white;margin:0 0 9px}
+.lec-conversion-card p{font-size:13px;color:#fff;max-width:285px;margin:0}
+.lec-conversion-card-link{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:12px;color:#1A1A1A;background:#FFC928;border-radius:22px;padding:9px 15px;font-size:13px;font-weight:600;width:max-content;max-width:100%;min-height:34px}
+.lec-conversion-card-link:hover{background:#f4bf0a;color:#1A1A1A}
+.lec-lead-panel{scroll-margin-top:110px;background:#EFEFF1;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:38px;padding:36px;margin-top:23px;margin-bottom:31px}
+.lec-lead-intro h2{font-size:28px;font-weight:400;margin:0 0 13px}
+.lec-lead-intro>p{font-size:14px;color:#5C5C66;margin:0 0 15px}
+.lec-lead-intro .lec-lead-clarity{font-size:12px;border-left:3px solid #8E1FC4;padding-left:13px}
+.lec-lead-form{display:grid;grid-template-columns:1fr 1fr;gap:15px;align-content:start}
+.lec-lead-form label{display:flex;flex-direction:column;gap:7px;font-size:12px;color:#5C5C66}
+.lec-lead-form input:not([type="checkbox"]):not([type="hidden"]),.lec-lead-form textarea{min-width:0;width:100%;border:1px solid #cbc6d0;border-radius:0;background:#fff;color:#1A1A1A;padding:11px 12px;font-size:14px}
+.lec-lead-full,.lec-lead-tabs{grid-column:1/-1}
+.lec-lead-tabs{display:flex;gap:9px;flex-wrap:wrap}
+.lec-lead-tabs button{border:1px solid #8E1FC4;border-radius:20px;padding:8px 17px;background:transparent;color:#5B1A8C;font-size:13px;font-weight:500}
+.lec-lead-tabs button[aria-pressed=true]{background:#5B1A8C;color:#fff}
+.lec-lead-form .lec-lead-consent{display:flex;flex-direction:row;align-items:flex-start;gap:9px;font-size:12px;line-height:1.5;color:#5C5C66}
+.lec-lead-consent input{margin-top:3px;flex:0 0 auto}
+.lec-lead-submit{display:flex;flex-direction:column;align-items:flex-start;gap:9px}
+.lec-lead-submit .action{background:#FFC928!important;color:#1A1A1A!important;border:0!important;border-radius:22px;font-size:13px;font-weight:600;min-height:35px;padding:10px 21px}
+.lec-lead-status{font-size:12px;color:#5B1A8C;line-height:1.5}
+@media(max-width:1248px){.lec-conversion,.lec-lead-panel{margin-left:24px;margin-right:24px}}
+@media(max-width:850px){.lec-lead-panel{grid-template-columns:1fr;gap:20px}}
+@media(max-width:680px){.lec-conversion-cards{grid-template-columns:1fr}.lec-conversion-card{min-height:160px;padding:19px;gap:10px}.lec-lead-panel{margin-left:18px;margin-right:18px;padding:22px}.lec-conversion{margin-left:18px;margin-right:18px}}
+@media(max-width:500px){.lec-lead-form{grid-template-columns:1fr}.lec-lead-form label{grid-column:1/-1}.lec-hero-actions .action{font-size:12px;padding:9px 15px}}
