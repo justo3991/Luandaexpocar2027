@@ -199,3 +199,34 @@
 .lec-stand-final h3{color:#fff;font-size:22px;font-weight:400;width:100%}.lec-stand-final p{color:#fff;font-size:13px;flex:1;margin:0}
 @media(max-width:800px){.lec-stand-benefit-grid{grid-template-columns:repeat(2,1fr)}.lec-stand-food{align-items:flex-start;flex-direction:column}.lec-stand-card-head>strong{font-size:23px}}
 @media(max-width:600px){.lec-stand-grid{grid-template-columns:1fr;gap:15px}.lec-stand-art{height:195px}.lec-stand-card-body{padding:17px}.lec-stand-benefit{min-height:165px;padding:17px}.lec-stand-benefit h3{font-size:17px}.lec-stand-food{padding:18px}.lec-stand-final{padding:20px}}
+
+
+/* Programa Amplifica — dedicated inclusion programme */
+.lec-amplifica .eyeline{color:#5B1A8C}
+.lec-amplifica>h2{max-width:1200px}
+.lec-amp-intro{max-width:1200px;padding:34px;background:linear-gradient(125deg,#5B1A8C,#8E1FC4 65%,#B21FD9);color:#fff;display:flex;flex-direction:column;align-items:flex-start;gap:17px}
+.lec-amp-intro .eyeline{color:#fff}.lec-amp-intro h2{font-size:clamp(29px,4vw,43px);font-weight:500;color:#fff;max-width:800px;line-height:1.15}
+.lec-amp-intro p{color:#fff;font-size:16px;line-height:1.65;max-width:820px}.lec-amp-intro strong{font-size:15px;color:#fff;font-weight:600}
+.lec-amp-intro .lec-stand-action{margin-top:6px}
+.lec-amp-barriers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));max-width:1200px;margin:0}
+.lec-amp-barriers article{padding:22px;background:#EFEFF1;border-right:1px solid #D7D7DB}.lec-amp-barriers article:nth-child(2){background:#1A1A1A;color:#fff}.lec-amp-barriers article:nth-child(2) p{color:#eee}.lec-amp-barriers article:last-child{border-right:0}
+.lec-amp-barriers h3{font-size:20px;font-weight:400;margin:0 0 12px}.lec-amp-barriers p{font-size:13px;line-height:1.6}
+.lec-amp-benefits{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid #D7D7DB;border-left:1px solid #D7D7DB;max-width:1200px;margin:20px 0}
+.lec-amp-benefits article{padding:23px;background:#fff;border-right:1px solid #D7D7DB;border-bottom:1px solid #D7D7DB;min-height:180px;display:flex;flex-direction:column;gap:12px}
+.lec-amp-benefits small{font-size:12px;color:#8E1FC4}.lec-amp-benefits h3{font-size:21px;font-weight:400}.lec-amp-benefits p{font-size:13px;line-height:1.6}
+.lec-amp-note{font-size:12px!important;color:#5C5C66;max-width:1200px;padding-left:13px;border-left:3px solid #8E1FC4;line-height:1.65}
+.lec-amp-phases{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));max-width:1200px;margin:20px 0}
+.lec-amp-phases article{padding:25px;min-height:205px;background:#5B1A8C;color:#fff}.lec-amp-phases article:nth-child(2){background:#1D3E9E}.lec-amp-phases article:nth-child(3){background:#3FA47A}
+.lec-amp-phases small{font-size:11px;color:#fff}.lec-amp-phases h3{font-size:21px;color:#fff;font-weight:400;margin:21px 0 12px}.lec-amp-phases p{font-size:13px;color:#fff;line-height:1.55}
+.lec-amp-application{scroll-margin-top:110px;max-width:1200px;display:grid;grid-template-columns:41% 1fr;gap:38px;align-items:start}
+.lec-amp-application>div:first-child{padding:6px 0}.lec-amp-application h2{font-size:29px;font-weight:400;line-height:1.2;margin-bottom:18px}.lec-amp-application p{font-size:14px;line-height:1.65}
+.lec-amp-form{background:#fff;padding:24px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;border:1px solid #D7D7DB}
+.lec-amp-form label{min-width:0;font-size:12px;color:#5C5C66;display:flex;flex-direction:column;gap:7px}
+.lec-amp-form input:not([type="checkbox"]),.lec-amp-form textarea{width:100%;background:#fff;border:1px solid #C8C8CC;border-radius:0;color:#1A1A1A;font:inherit;font-size:14px;padding:10px 12px;min-height:41px}
+.lec-amp-full{grid-column:1/-1}.lec-amp-form .lec-amp-consent{flex-direction:row;align-items:start;gap:9px;line-height:1.5}.lec-amp-consent input{margin-top:3px}
+.lec-amp-form .lec-stand-action{border:0;cursor:pointer}
+#amplifica-status{font-size:12px;line-height:1.5;margin-top:10px;color:#5B1A8C}
+.lec-amp-cross{max-width:1200px;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:28px;background:#EFEFF1;border-left:4px solid #8E1FC4}
+.lec-amp-cross>div{max-width:750px}.lec-amp-cross h2{font-size:25px;font-weight:400;margin:10px 0}.lec-amp-cross p{font-size:14px}.lec-amp-cross .lec-stand-action{flex-shrink:0}
+@media(max-width:850px){.lec-amp-application{grid-template-columns:1fr}.lec-amp-cross{flex-direction:column;align-items:flex-start}.lec-amp-benefits{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.lec-amp-intro{padding:23px}.lec-amp-barriers,.lec-amp-phases{grid-template-columns:1fr}.lec-amp-benefits{grid-template-columns:1fr}.lec-amp-phases article{min-height:140px}.lec-amp-application{gap:15px}.lec-amp-form{padding:17px;grid-template-columns:1fr}.lec-amp-form label{grid-column:1/-1}}
