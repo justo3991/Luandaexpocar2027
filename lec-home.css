@@ -318,3 +318,12 @@
 .lec-ceo-actions a:hover{background:#EFBF1C}
 @media(max-width:850px){.lec-ceo-home{grid-template-columns:40% 60%}.lec-ceo-home-content{padding:22px}.lec-ceo-full-grid{grid-template-columns:34% 1fr;gap:22px}}
 @media(max-width:650px){.lec-ceo-home{width:calc(100% - 36px);grid-template-columns:1fr}.lec-ceo-home-photo{max-height:290px;min-height:240px}.lec-ceo-home-photo .lec-ceo-image{height:290px;min-height:240px;object-position:center 22%}.lec-ceo-home-content{padding:23px}.lec-ceo-full-grid{grid-template-columns:1fr}.lec-ceo-full-photo{position:static;display:grid;grid-template-columns:145px 1fr;align-items:center}.lec-ceo-full-photo .lec-ceo-image{height:145px;width:145px}.lec-ceo-letter{padding-top:22px}.lec-ceo-letter p{font-size:13px}}
+
+
+/* Official uploaded Luanda Expo Car logo (transparent brand asset) */
+.site-header .logo{display:flex;align-items:center;justify-content:flex-start;flex:0 0 auto;min-width:0;line-height:0}
+.lec-brand-logo{display:block;width:158px;max-width:100%;height:auto;object-fit:contain;flex-shrink:0}
+.footer-identity{display:flex;align-items:center;line-height:0;max-width:200px}
+.lec-footer-logo{display:block;width:186px;max-width:100%;height:auto;object-fit:contain}
+@media(max-width:1120px){.lec-brand-logo{width:142px}}
+@media(max-width:680px){.lec-brand-logo{width:137px}.lec-footer-logo{width:172px}}
