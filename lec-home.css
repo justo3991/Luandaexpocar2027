@@ -250,3 +250,43 @@
 .lec-amp-terms li:before{content:"✓";font-weight:700;color:#3FA47A;flex-shrink:0}
 @media(max-width:940px){.lec-amp-instalments{grid-template-columns:repeat(3,minmax(0,1fr))}.lec-amp-editorial{grid-template-columns:repeat(2,minmax(0,1fr))}.lec-amp-instalments strong{font-size:18px}}
 @media(max-width:580px){.lec-amp-instalments{grid-template-columns:repeat(2,minmax(0,1fr))}.lec-amp-editorial{grid-template-columns:1fr}.lec-amp-instalments>div{min-height:110px;padding:13px}.lec-amp-terms li{font-size:13px}}
+
+
+/* Dossier LEC 2027: commercial options, official sponsor categories and venue V04 */
+.lec-sponsor-tabs{display:flex;flex-wrap:wrap;gap:9px;margin:24px 0}
+.lec-sponsor-tabs a{font-size:13px;background:#EFEFF1;border:1px solid #D7D7DB;border-radius:24px;padding:9px 17px;color:#5B1A8C}
+.lec-sponsor-tabs a:hover{background:#5B1A8C;color:#fff}
+.lec-sponsor-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;max-width:1200px}
+.lec-sponsor-card{border:1px solid #D7D7DB;background:#fff;padding:22px;display:flex;flex-direction:column;gap:13px;min-height:355px}
+.lec-sponsor-card small{font-size:11px;color:#8E1FC4}.lec-sponsor-card h3{font-size:21px;margin:0;font-weight:500}.lec-sponsor-card>strong{font-size:23px;color:#5B1A8C;font-weight:600}
+.lec-sponsor-card p{font-size:12px;color:#5C5C66;line-height:1.65;flex:1}
+.lec-sponsor-facts{display:flex;flex-wrap:wrap;gap:6px}.lec-sponsor-facts span{font-size:11px;background:#EFEFF1;padding:6px 8px}
+.lec-commercial-grid{max-width:1200px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:20px 0}
+.lec-commercial-small{background:#fff;border:1px solid #D7D7DB;padding:19px;display:flex;flex-direction:column;gap:15px;min-height:150px}
+.lec-commercial-small h3{font-size:17px;font-weight:400;margin:0}.lec-commercial-small>strong{font-size:18px;color:#5B1A8C;font-weight:600}
+.lec-commercial-small a{font-size:12px;color:#5B1A8C;margin-top:auto;text-decoration:underline}
+.lec-commercial-small p{font-size:12px}
+.lec-opening{max-width:1200px;background:linear-gradient(120deg,#5B1A8C,#8E1FC4);padding:27px;color:#fff}
+.lec-opening strong{font-size:clamp(33px,5vw,53px);font-weight:700;color:#fff}.lec-opening p{color:#fff;font-size:15px;margin-top:11px}
+.lec-estimator{max-width:1200px;background:#fff;border:1px solid #D7D7DB;padding:23px}
+#stand-estimator{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
+#stand-estimator label{display:flex;flex-direction:column;gap:8px;font-size:13px}
+#stand-estimator select{min-height:44px;width:100%;background:#fff;border:1px solid #d7d7db;padding:8px;color:#1a1a1a}
+.lec-estimate-total{grid-column:1/-1;background:#EFEFF1;padding:22px;display:flex;flex-direction:column;gap:9px}
+.lec-estimate-total small{font-size:11px;color:#5B1A8C}
+.lec-estimate-total strong{font-size:clamp(27px,3.5vw,39px);font-weight:700;color:#1A1A1A}
+.lec-estimate-total span{font-size:12px;color:#5C5C66}
+#stand-estimate-request{grid-column:1/-1}
+.lec-venue-layout{max-width:1200px;display:grid;grid-template-columns:minmax(0,2fr) minmax(250px,1fr);gap:20px;margin:26px 0}
+.lec-venue-map{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px;background:#EFEFF1;padding:14px;position:relative;align-content:start}
+.lec-venue-zone{min-height:110px;background:#5B1A8C;color:#fff;border:2px solid transparent;padding:10px;display:flex;flex-direction:column;justify-content:space-between;gap:12px;text-align:left;cursor:pointer}
+.lec-venue-zone small{font-size:12px;opacity:.75;color:inherit}.lec-venue-zone span{font-size:12px;font-weight:600;line-height:1.25;color:inherit}
+.lec-venue-zone:nth-child(4n+2){background:#1D3E9E}.lec-venue-zone:nth-child(4n+3){background:#3FA47A}
+.lec-venue-zone[aria-pressed=true]{border-color:#FFC928;box-shadow:inset 0 0 0 1px #FFC928}
+.lec-venue-zone:hover{filter:brightness(1.12)}
+.lec-zone-02a{background:#B21FD9!important}
+.lec-venue-watermark{grid-column:1/-1;font-size:11px;color:#5c5c66;text-align:center;margin:12px 0 0}
+.lec-venue-detail{padding:24px;background:#fff;border:1px solid #D7D7DB;align-self:start;position:sticky;top:105px}
+.lec-venue-detail h3{font-size:23px;margin:12px 0;font-weight:400}.lec-venue-detail p{font-size:14px;line-height:1.7;margin:0 0 22px}
+@media(max-width:950px){.lec-sponsor-grid,.lec-commercial-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.lec-venue-layout{grid-template-columns:1fr}.lec-venue-detail{position:static}}
+@media(max-width:600px){.lec-sponsor-grid,.lec-commercial-grid{grid-template-columns:1fr}.lec-venue-map{grid-template-columns:repeat(3,minmax(0,1fr));padding:8px;gap:4px}.lec-venue-zone{min-height:92px;padding:7px}.lec-venue-zone span{font-size:10px}#stand-estimator{grid-template-columns:1fr}.lec-estimate-total,#stand-estimate-request{grid-column:1}}
