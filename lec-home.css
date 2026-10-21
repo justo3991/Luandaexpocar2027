@@ -149,3 +149,11 @@
 @media(max-width:850px){.lec-lead-panel{grid-template-columns:1fr;gap:20px}}
 @media(max-width:680px){.lec-conversion-cards{grid-template-columns:1fr}.lec-conversion-card{min-height:160px;padding:19px;gap:10px}.lec-lead-panel{margin-left:18px;margin-right:18px;padding:22px}.lec-conversion{margin-left:18px;margin-right:18px}}
 @media(max-width:500px){.lec-lead-form{grid-template-columns:1fr}.lec-lead-form label{grid-column:1/-1}.lec-hero-actions .action{font-size:12px;padding:9px 15px}}
+
+
+/* Homepage conversion: align title and three tiles to the same 1200px grid as other sections. */
+.lec-conversion{box-sizing:border-box;width:calc(100% - 48px);max-width:1200px;margin:27px auto 15px;padding:0}
+.lec-conversion .lec-section-head,.lec-conversion-cards{width:100%;max-width:100%;min-width:0}
+.lec-conversion-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0}
+.lec-conversion-card{min-width:0}
+@media(max-width:680px){.lec-conversion{width:calc(100% - 36px);margin:27px auto 15px}.lec-conversion-cards{grid-template-columns:1fr}}
