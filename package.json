@@ -1,0 +1,12 @@
+{
+  "name": "luanda-expo-car-2027",
+  "version": "2.1.0",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build.mjs && node scripts/verify.mjs",
+    "verify": "node scripts/verify.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
