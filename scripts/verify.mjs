@@ -1,7 +1,7 @@
 import {existsSync,readFileSync,readdirSync} from 'node:fs';
 import {join} from 'node:path';
 const root='dist';
-const expected=['index','evento','expositores','parceiros','programa','visitar','contactos','noticias','historia','bilhetes','horarios','chegar','alojamento','vistos','directorio','stands','amplifica','documentos','servicos','deal-room','market-access','delegacoes','imprensa','galeria'];
+const expected=['index','evento','expositores','parceiros','programa','visitar','contactos','noticias','historia','bilhetes','horarios','chegar','alojamento','vistos','directorio','stands','amplifica','recinto','documentos','servicos','deal-room','market-access','delegacoes','imprensa','galeria'];
 const required=['site.css','site-data.js','site-core.js','sitemap.xml','robots.txt'];
 const failures=[];
 for(const file of required)if(!existsSync(join(root,file)))failures.push('Ficheiro em falta: '+file);
@@ -21,6 +21,6 @@ for(const slug of expected){
   }
 }
 const htmlFiles=readdirSync(root).filter(f=>f.endsWith('.html'));
-if(htmlFiles.length!==expected.length)failures.push('Esperadas 24 páginas, encontradas '+htmlFiles.length);
+if(htmlFiles.length!==expected.length)failures.push('Esperadas 25 páginas, encontradas '+htmlFiles.length);
 if(failures.length){console.error(failures.join('\n'));process.exitCode=1}
-else console.log('Validado: 24 páginas HTML, estrutura essencial, recursos e ligações internas.');
+else console.log('Validado: 25 páginas HTML, estrutura essencial, recursos e ligações internas.');
