@@ -290,3 +290,31 @@
 .lec-venue-detail h3{font-size:23px;margin:12px 0;font-weight:400}.lec-venue-detail p{font-size:14px;line-height:1.7;margin:0 0 22px}
 @media(max-width:950px){.lec-sponsor-grid,.lec-commercial-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.lec-venue-layout{grid-template-columns:1fr}.lec-venue-detail{position:static}}
 @media(max-width:600px){.lec-sponsor-grid,.lec-commercial-grid{grid-template-columns:1fr}.lec-venue-map{grid-template-columns:repeat(3,minmax(0,1fr));padding:8px;gap:4px}.lec-venue-zone{min-height:92px;padding:7px}.lec-venue-zone span{font-size:10px}#stand-estimator{grid-template-columns:1fr}.lec-estimate-total,#stand-estimate-request{grid-column:1}}
+
+
+/* CEO institutional message: restrained editorial layout within the site's 1200px grid */
+.lec-ceo-home{max-width:1200px;width:calc(100% - 48px);margin:42px auto 27px;display:grid;grid-template-columns:36% 64%;background:#EFEFF1;overflow:hidden;min-height:330px}
+.lec-ceo-home-photo{min-height:330px;background:#5B1A8C;overflow:hidden}
+.lec-ceo-image{display:block;width:100%;height:100%;min-height:320px;object-fit:cover;object-position:center top}
+.lec-ceo-home-content{padding:32px 36px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:14px}
+.lec-ceo-home-content h2{font-size:clamp(24px,2.7vw,33px);font-weight:400;letter-spacing:-.03em;line-height:1.18;margin:0}
+.lec-ceo-home-content blockquote{border-left:3px solid #8E1FC4;padding-left:17px;color:#45404A;font-size:16px;font-weight:400;line-height:1.65;margin:0}
+.lec-ceo-signature{display:flex;flex-direction:column;gap:4px;line-height:1.35}
+.lec-ceo-signature strong{font-size:12px;letter-spacing:.015em;font-weight:700;color:#1A1A1A}
+.lec-ceo-signature span{font-size:11px;color:#5C5C66}
+.lec-ceo-read{font-size:13px;color:#5B1A8C;font-weight:600;text-decoration:none;margin-top:5px}
+.lec-ceo-read:hover{text-decoration:underline}
+.lec-ceo-full{scroll-margin-top:100px}
+.lec-ceo-full-grid{max-width:1200px;display:grid;grid-template-columns:30% 1fr;gap:44px;margin-top:20px;align-items:start}
+.lec-ceo-full-photo{position:sticky;top:100px;background:#EFEFF1}
+.lec-ceo-full-photo .lec-ceo-image{aspect-ratio:1;min-height:0}
+.lec-ceo-full-photo .lec-ceo-signature{padding:19px}
+.lec-ceo-letter{border-top:3px solid #5B1A8C;padding:24px 0 0}
+.lec-ceo-letter p{font-size:14px;line-height:1.9;color:#35313A;max-width:790px;margin:0 0 20px}
+.lec-ceo-letter .lec-ceo-greeting{font-weight:600;color:#1A1A1A}
+.lec-ceo-letter>.lec-ceo-signature{margin:20px 0}
+.lec-ceo-actions{display:flex;flex-wrap:wrap;gap:10px;padding-top:20px;border-top:1px solid #D7D7DB}
+.lec-ceo-actions a{font-size:12px;font-weight:600;color:#1A1A1A;border-radius:22px;background:#FFC928;padding:9px 14px}
+.lec-ceo-actions a:hover{background:#EFBF1C}
+@media(max-width:850px){.lec-ceo-home{grid-template-columns:40% 60%}.lec-ceo-home-content{padding:22px}.lec-ceo-full-grid{grid-template-columns:34% 1fr;gap:22px}}
+@media(max-width:650px){.lec-ceo-home{width:calc(100% - 36px);grid-template-columns:1fr}.lec-ceo-home-photo{max-height:290px;min-height:240px}.lec-ceo-home-photo .lec-ceo-image{height:290px;min-height:240px;object-position:center 22%}.lec-ceo-home-content{padding:23px}.lec-ceo-full-grid{grid-template-columns:1fr}.lec-ceo-full-photo{position:static;display:grid;grid-template-columns:145px 1fr;align-items:center}.lec-ceo-full-photo .lec-ceo-image{height:145px;width:145px}.lec-ceo-letter{padding-top:22px}.lec-ceo-letter p{font-size:13px}}
