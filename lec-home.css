@@ -157,3 +157,45 @@
 .lec-conversion-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0}
 .lec-conversion-card{min-width:0}
 @media(max-width:680px){.lec-conversion{width:calc(100% - 36px);margin:27px auto 15px}.lec-conversion-cards{grid-template-columns:1fr}}
+
+
+/* Formats of exhibition — a commercial catalogue aligned to the 1200px LEC grid */
+.lec-stand-section>.eyeline,.lec-stand-section>h2,.lec-stand-section>.lead{max-width:1200px}
+.lec-stand-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;width:100%;max-width:1200px;margin:24px 0 15px}
+.lec-stand-card{display:flex;flex-direction:column;min-width:0;border:1px solid #D7D7DB;background:#fff}
+.lec-stand-art{height:225px;position:relative;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;background:linear-gradient(130deg,#5B1A8C,#8E1FC4 58%,#1D3E9E);color:#fff;padding:17px}
+.lec-stand-card:nth-child(2) .lec-stand-art{background:linear-gradient(125deg,#1D3E9E,#5B1A8C)}.lec-stand-card:nth-child(3) .lec-stand-art{background:linear-gradient(120deg,#5B1A8C,#3FA47A)}.lec-stand-card:nth-child(4) .lec-stand-art{background:linear-gradient(125deg,#4a1c81,#8E1FC4)}
+.lec-stand-art>small{z-index:2;font-size:11px}.lec-stand-photo{z-index:2;font-size:11px;color:#fff;opacity:.85}
+.lec-stand-drawing{position:absolute;left:33%;right:12%;top:20%;bottom:0;opacity:.17;border:6px solid #fff;transform:skewY(-12deg);box-shadow:25px -20px 0 0 #fff5,48px -38px 0 0 #fff4}
+.lec-stand-drawing span:nth-child(1){position:absolute;border-left:4px solid white;height:100%;left:28%}.lec-stand-drawing span:nth-child(2){position:absolute;border-left:4px solid white;height:100%;left:65%}.lec-stand-drawing span:nth-child(3){position:absolute;border-top:4px solid white;width:100%;top:25%}
+.lec-stand-card-body{padding:23px;display:flex;flex-direction:column;gap:16px;flex:1}
+.lec-stand-card-head{display:flex;justify-content:space-between;gap:18px;align-items:end}.lec-stand-card-head small{font-size:11px;color:#5B1A8C}
+.lec-stand-card-head h3{font-size:23px;font-weight:400;margin:6px 0 0;color:#1A1A1A}.lec-stand-card-head>strong{white-space:nowrap;font-size:27px;font-weight:600;color:#5B1A8C}
+.lec-stand-price{display:flex;gap:6px;align-items:baseline;flex-wrap:wrap;margin:0;font-size:12px}.lec-stand-price b{font-size:19px;font-weight:600;color:#1A1A1A}
+.lec-stand-built{background:#EAF4EF;color:#236F51;font-size:13px;font-weight:500;padding:11px;display:flex;gap:10px;align-items:center}.lec-stand-built span{font-size:18px}
+.lec-stand-card-body ul{list-style:none;padding:0;margin:0;display:grid;gap:9px}
+.lec-stand-card-body li{font-size:13px;color:#5C5C66;display:flex;gap:8px}.lec-stand-card-body li:before{content:"+";color:#8E1FC4;font-weight:700}
+.lec-stand-action{background:#FFC928;color:#1A1A1A!important;border-radius:22px;min-height:38px;padding:10px 17px;font-weight:600;font-size:13px;width:fit-content;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;transition:background .2s}
+.lec-stand-action:hover{background:#ecb90e;color:#1A1A1A}.lec-stand-card-body .lec-stand-action{margin-top:auto}
+.lec-stand-table-scroll{overflow-x:auto;width:100%;max-width:1200px;border:1px solid #D7D7DB}
+.lec-stand-table{border-collapse:collapse;text-align:left;width:100%;min-width:815px}
+.lec-stand-table th,.lec-stand-table td{padding:14px 15px;border-bottom:1px solid #D7D7DB;font-size:12px;vertical-align:top}
+.lec-stand-table thead{background:#5B1A8C;color:#fff}.lec-stand-table thead th{font-weight:500;white-space:nowrap}.lec-stand-table tbody tr:nth-child(even){background:#fff}.lec-stand-table tbody tr:nth-child(odd){background:#F7F7F8}.lec-stand-table tbody th{font-weight:600;color:#1A1A1A}
+.lec-stand-table-note{font-size:12px;color:#236F51;margin:14px 0 0}
+.lec-stand-benefit-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));max-width:1200px}
+.lec-stand-benefit{min-height:215px;padding:22px;color:#fff;background:#5B1A8C;display:flex;flex-direction:column;gap:13px;justify-content:space-between}
+.lec-stand-benefit-1{background:#1D3E9E}.lec-stand-benefit-2{background:#3FA47A}.lec-stand-benefit-3{background:#FFC928;color:#1A1A1A}
+.lec-stand-benefit small{font-size:11px;opacity:.8}.lec-stand-benefit h3{font-size:20px;font-weight:400;color:inherit;margin:0}.lec-stand-benefit p{font-size:12px;color:inherit;margin:0;line-height:1.55}
+.lec-stand-food{max-width:1200px;background:#fff;padding:28px;display:flex;gap:20px;align-items:center;justify-content:space-between}
+.lec-stand-food>div{max-width:650px}.lec-stand-food h2{margin:0 0 12px}.lec-stand-food p{font-size:13px}
+.lec-stand-food-facts{display:flex;flex-wrap:wrap;gap:8px;margin:15px 0}.lec-stand-food-facts span{background:#EFEFF1;padding:8px 12px;font-weight:500;font-size:13px}
+.lec-stand-food .lec-stand-action{flex-shrink:0}
+.lec-stand-faq{max-width:1200px;border-top:1px solid #D7D7DB}
+.lec-stand-faq details{border-bottom:1px solid #D7D7DB}
+.lec-stand-faq summary{list-style:none;display:flex;justify-content:space-between;gap:20px;align-items:center;cursor:pointer;padding:18px 10px;font-size:15px;font-weight:500}
+.lec-stand-faq summary::-webkit-details-marker{display:none}.lec-stand-faq summary span{font-size:28px;color:#5B1A8C;transition:transform .2s}
+.lec-stand-faq details[open] summary span{transform:rotate(45deg)}.lec-stand-faq details p{padding:0 10px 20px;margin:0;color:#5C5C66;font-size:13px;line-height:1.75;max-width:870px}
+.lec-stand-final{margin-top:30px;padding:28px;background:linear-gradient(120deg,#5B1A8C,#8E1FC4);color:#fff;display:flex;flex-wrap:wrap;align-items:center;gap:14px 26px}
+.lec-stand-final h3{color:#fff;font-size:22px;font-weight:400;width:100%}.lec-stand-final p{color:#fff;font-size:13px;flex:1;margin:0}
+@media(max-width:800px){.lec-stand-benefit-grid{grid-template-columns:repeat(2,1fr)}.lec-stand-food{align-items:flex-start;flex-direction:column}.lec-stand-card-head>strong{font-size:23px}}
+@media(max-width:600px){.lec-stand-grid{grid-template-columns:1fr;gap:15px}.lec-stand-art{height:195px}.lec-stand-card-body{padding:17px}.lec-stand-benefit{min-height:165px;padding:17px}.lec-stand-benefit h3{font-size:17px}.lec-stand-food{padding:18px}.lec-stand-final{padding:20px}}
