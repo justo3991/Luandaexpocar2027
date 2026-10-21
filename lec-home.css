@@ -327,3 +327,11 @@
 .lec-footer-logo{display:block;width:186px;max-width:100%;height:auto;object-fit:contain}
 @media(max-width:1120px){.lec-brand-logo{width:142px}}
 @media(max-width:680px){.lec-brand-logo{width:137px}.lec-footer-logo{width:172px}}
+
+
+/* Privacy information — concise editorial presentation */
+.lec-privacy-list{max-width:1060px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:24px}
+.lec-privacy-list article{background:#EFEFF1;padding:23px;border-top:3px solid #8E1FC4}
+.lec-privacy-list h3{font-size:20px;font-weight:500;margin:0 0 10px}
+.lec-privacy-list p{font-size:13px;line-height:1.75;color:#5C5C66;margin:0}
+@media(max-width:650px){.lec-privacy-list{grid-template-columns:1fr}}
