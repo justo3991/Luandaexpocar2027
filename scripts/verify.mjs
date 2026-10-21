@@ -15,6 +15,7 @@ for(const slug of expected){
   if(!html.includes('data-page="'+slug+'"'))failures.push(slug+': identificador de página incorrecto');
   const links=[...html.matchAll(/href="([^"]+\.html(?:\?[^"]*)?)"/g)];
   for(const [,url] of links){
+    if(/^(https?:)?\/\//i.test(url))continue;
     const dest=url.split('?')[0].replace(/^\//,'');
     if(!existsSync(join(root,dest)))failures.push(slug+': ligação sem destino '+dest);
   }
