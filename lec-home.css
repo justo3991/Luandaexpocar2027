@@ -335,3 +335,12 @@
 .lec-privacy-list h3{font-size:20px;font-weight:500;margin:0 0 10px}
 .lec-privacy-list p{font-size:13px;line-height:1.75;color:#5C5C66;margin:0}
 @media(max-width:650px){.lec-privacy-list{grid-template-columns:1fr}}
+
+
+/* Official Luanda Expo Car social media channels */
+.lec-social-bar{display:flex;flex-wrap:wrap;align-items:center;gap:20px;justify-content:space-between;padding:20px 0;max-width:1200px;margin:0 auto;border-top:1px solid rgba(150,150,150,.3);border-bottom:1px solid rgba(150,150,150,.3)}
+.lec-social-bar>strong{font-size:11px;letter-spacing:.13em;font-weight:600}
+.lec-social-links{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.lec-social-links a{display:inline-flex;align-items:center;gap:7px;border:1px solid currentColor;border-radius:22px;padding:8px 12px;font-size:12px;line-height:1.25;text-decoration:none;transition:background .2s,color .2s}
+.lec-social-links a:hover,.lec-social-links a:focus-visible{background:#FFC928;color:#27133A;border-color:#FFC928}
+@media(max-width:650px){.lec-social-bar{align-items:flex-start;flex-direction:column;gap:12px;padding:20px 0}.lec-social-links{gap:7px}.lec-social-links a{padding:9px 12px}}
