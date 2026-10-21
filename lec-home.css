@@ -73,3 +73,42 @@
 .lec-brand-item:nth-child(4n+2){background:#efeff1}.lec-brand-item:nth-child(4n+3){background:#ffffff}
 @media(max-width:800px){.lec-team-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.lec-ceo-grid{grid-template-columns:1fr}.lec-ceo-photo{min-height:280px}.lec-brand-mosaic{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:540px){.lec-team-grid{grid-template-columns:1fr 1fr}.lec-team-photo{height:185px}.lec-team-body{padding:14px}.lec-team-body h3{font-size:17px}.lec-ceo-copy{padding:26px}.lec-brand-mosaic{grid-template-columns:repeat(2,1fr)}.lec-brand-item{min-height:135px;padding:12px}.lec-contact-ctas{flex-direction:column;align-items:flex-start}}
+
+
+/* LEC 2027 programme — existing visual system: purple, yellow pills and square mosaics */
+.lec-programme{width:100%;max-width:1200px;margin:auto;color:#1a1a1a}
+.lec-day-tabs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;margin:20px 0 25px}
+.lec-day-tab{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:106px;background:#efeff1;border:1px solid #d7d7db;color:#1a1a1a;padding:12px 8px;cursor:pointer;transition:background .2s,color .2s}
+.lec-day-tab:hover{background:#e8d7f1}.lec-day-tab[aria-selected=true]{background:linear-gradient(120deg,#5b1a8c,#8e1fc4,#b21fd9);color:#fff;border-color:#5b1a8c}
+.lec-day-tab small{font-size:11px;font-weight:400}.lec-day-tab strong{font-size:32px;font-weight:700;line-height:1.1;margin:5px 0}
+.lec-program-filters{display:flex;gap:18px;align-items:end;justify-content:space-between;flex-wrap:wrap;padding:19px 0;border-top:1px solid #d7d7db;border-bottom:1px solid #d7d7db;margin-bottom:22px}
+.lec-program-search-label{display:flex;flex-direction:column;gap:7px;font-size:12px;color:#5c5c66;min-width:235px}
+.lec-program-search-label input{background:#fff;color:#1a1a1a;border:1px solid #c9c9d0;padding:10px 14px;min-height:40px;border-radius:0;font-size:14px}
+.lec-category-filters{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.lec-filter{border:1px solid #c9c9d0;border-radius:22px;background:#f7f7f8;color:#5c5c66;font-size:12px;font-weight:400;min-height:34px;padding:7px 13px;transition:background .2s,color .2s}
+.lec-filter:hover{border-color:#8e1fc4;color:#5b1a8c}.lec-filter[aria-pressed=true]{background:#ffc928;color:#1a1a1a;border-color:#ffc928;font-weight:600}
+.lec-day-panel[hidden],.lec-session[hidden],.lec-program-empty[hidden]{display:none!important}
+.lec-program-day-heading{display:flex;align-items:end;justify-content:space-between;gap:20px;margin:18px 0 15px}
+.lec-program-day-heading small{font-size:12px;color:#5b1a8c}.lec-program-day-heading h3{font-size:26px;font-weight:400;line-height:1.25;margin:8px 0 0}
+.lec-program-day-heading>span{font-size:12px;color:#5c5c66}
+.lec-session-list{border-top:1px solid #d7d7db}
+.lec-session{border-bottom:1px solid #d7d7db;background:#f7f7f8}
+.lec-session summary{display:grid;grid-template-columns:50px 1fr 36px;gap:14px;align-items:center;padding:21px 12px;list-style:none;cursor:pointer;transition:background .2s}
+.lec-session summary::-webkit-details-marker{display:none}
+.lec-session summary:hover,.lec-session[open] summary{background:#efeff1}
+.lec-session-number{font-size:14px;color:#8e1fc4}
+.lec-session-summary{display:flex;flex-direction:column;gap:5px}
+.lec-session-summary small{font-size:11px;color:#5c5c66;font-weight:400}
+.lec-session-summary strong{font-size:19px;font-weight:400;color:#1a1a1a}
+.lec-session-plus{font-size:29px;font-weight:400;text-align:center;color:#5b1a8c;transition:transform .2s}
+.lec-session[open] .lec-session-plus{transform:rotate(45deg)}
+.lec-session-detail{padding:0 20px 25px 76px;max-width:920px}
+.lec-session-detail>p{font-size:14px;color:#5c5c66;line-height:1.75;margin-bottom:20px}
+.lec-session-meta{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:#d7d7db}
+.lec-session-meta>div{background:#fff;padding:15px 13px;display:flex;flex-direction:column;gap:7px}
+.lec-session-meta small{font-size:11px;color:#5c5c66}.lec-session-meta strong{font-size:13px;font-weight:400;color:#1a1a1a}
+.lec-session-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.lec-session-actions .action{min-height:35px;border-radius:22px;background:#ffc928!important;color:#1a1a1a!important;padding:9px 17px;font-size:13px;font-weight:600}
+.lec-program-empty{font-size:14px;padding:25px;background:#efeff1;color:#5c5c66}
+@media(max-width:780px){.lec-program-filters{align-items:stretch;flex-direction:column}.lec-program-search-label{width:100%}.lec-program-search-label input{width:100%}.lec-day-tab{min-height:84px}.lec-day-tab strong{font-size:26px}.lec-day-panel .lec-program-day-heading{align-items:start;flex-direction:column;gap:4px}}
+@media(max-width:540px){.lec-day-tabs{gap:3px}.lec-day-tab{padding:8px 2px;min-height:75px}.lec-day-tab strong{font-size:22px}.lec-day-tab small{font-size:9px}.lec-category-filters{gap:5px}.lec-filter{font-size:11px;padding:7px 10px}.lec-session summary{grid-template-columns:31px 1fr 22px;gap:9px;padding:16px 4px}.lec-session-summary strong{font-size:17px}.lec-session-detail{padding:0 8px 22px 39px}.lec-session-meta{grid-template-columns:1fr}.lec-program-day-heading h3{font-size:22px}}
