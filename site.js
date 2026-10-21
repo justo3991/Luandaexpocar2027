@@ -1,0 +1,12 @@
+(()=>{'use strict';
+const nav=document.querySelector('.primary-nav'),toggle=document.querySelector('.nav-toggle'),entries=[...document.querySelectorAll('.nav-entry')],mobile=()=>matchMedia('(max-width:760px)').matches;
+function closeEntries(){entries.forEach(el=>{el.classList.remove('open');el.querySelector('.nav-trigger')?.setAttribute('aria-expanded','false')})}
+entries.forEach(el=>{const b=el.querySelector('.nav-trigger');if(!b)return;b.addEventListener('click',()=>{const open=el.classList.contains('open');closeEntries();if(!open){el.classList.add('open');b.setAttribute('aria-expanded','true')}});el.addEventListener('mouseenter',()=>{if(!mobile()){closeEntries();el.classList.add('open');b.setAttribute('aria-expanded','true')}});el.addEventListener('mouseleave',()=>{if(!mobile()){el.classList.remove('open');b.setAttribute('aria-expanded','false')}})});
+toggle?.addEventListener('click',()=>{const isOpen=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',String(isOpen));toggle.setAttribute('aria-label',isOpen?'Fechar menu':'Abrir menu');if(!isOpen)closeEntries()});
+document.addEventListener('click',ev=>{if(!ev.target.closest('.site-header'))closeEntries()});
+document.addEventListener('keydown',ev=>{if(ev.key==='Escape'){closeEntries();nav?.classList.remove('open');toggle?.setAttribute('aria-expanded','false');toggle?.focus()}});
+window.addEventListener('resize',()=>{if(!mobile()){nav?.classList.remove('open');toggle?.setAttribute('aria-expanded','false')}closeEntries()});
+const hero=document.querySelector('.hero-video'),pause=document.querySelector('.hero-pause');pause?.addEventListener('click',()=>{const p=hero.classList.toggle('is-paused');pause.textContent=p?'▶':'Ⅱ';pause.setAttribute('aria-label',p?'Retomar movimento':'Pausar movimento')});
+document.querySelectorAll('[data-loadmore]').forEach(b=>{const target=document.querySelector(b.dataset.loadmore);if(!target)return;let shown=6;const items=[...target.children];function draw(){items.forEach((x,i)=>x.hidden=i>=shown);if(shown>=items.length)b.hidden=true}draw();b.addEventListener('click',()=>{shown+=6;draw()})});
+document.querySelectorAll('form[data-placeholder-form]').forEach(form=>form.addEventListener('submit',ev=>{ev.preventDefault();const status=form.querySelector('[role="status"]');if(!form.reportValidity())return;if(status)status.textContent='[INTEGRAÇÃO DE ENVIO A INSERIR] — Os dados não foram enviados. Contacte a organização através dos canais oficiais quando publicados.'}));
+})();

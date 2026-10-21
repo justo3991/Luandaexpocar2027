@@ -1,1 +1,0 @@
-const form=document.getElementById('contact-page-form');if(form){form.addEventListener('submit',e=>{e.preventDefault();document.getElementById('contact-page-status').textContent='Dados validados localmente. Este formulário ainda não envia pedidos; a integração com o CRM está pendente.';});}

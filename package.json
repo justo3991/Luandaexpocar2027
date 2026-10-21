@@ -1,12 +1,10 @@
 {
   "name": "luanda-expo-car-2027",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
-  "description": "Website institucional Luanda Expo Car 2027",
   "scripts": {
-    "dev": "npx --yes serve . -l 3000",
-    "build": "node scripts/build.mjs && node scripts/verify.mjs",
-    "verify": "node scripts/verify.mjs"
+    "build": "node scripts/build.mjs",
+    "verify": "node scripts/build.mjs"
   },
   "engines": {
     "node": ">=20"
