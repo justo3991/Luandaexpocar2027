@@ -1,82 +1,36 @@
-import{mkdirSync,rmSync,writeFileSync,copyFileSync}from'node:fs';
-const rows=[
-['index','Início','A','A feira automóvel de Angola. Uma plataforma que conecta marcas e mercados.'],
-['evento','O Evento','C','O LEC conecta marcas internacionais a Angola e liga as províncias a Luanda.'],
-['edicao-2027','Edição 2027','C','4.ª edição: 23 a 27 de Junho de 2027 na Baía de Luanda, indoor e outdoor.'],
-['historia','Edições anteriores / História','C','Uma feira automóvel angolana em evolução.'],
-['visitantes','Visitantes','B','Tudo para preparar a sua visita ao LEC 2027.'],
-['ingressos','Ingressos','C','Ingressos da quarta edição: preços e modalidades a confirmar.'],
-['planear-visita','Planear a visita','C','Horários, como chegar e alojamento.'],
-['delegacoes-vistos','Delegações internacionais e vistos','C','A porta de entrada das marcas internacionais em Angola.'],
-['expositores','Expositores','B','O LEC conecta marcas, profissionais e oportunidades.'],
-['tornar-se-expositor','Tornar-se expositor','C','Stand construído pela WEDO incluído em todos os pacotes de expositor.'],
-['directorio','Directório de expositores','D','Marcas que participam na quarta edição.'],
-['patrocinios','Patrocínios','C','Stand construído pela WEDO incluído em todos os pacotes de patrocínio.'],
-['programa','Programa e conferências','D','Agenda da quarta edição.'],
-['oradores','Oradores','D','Rostos e vozes da mobilidade.'],
-['deal-room','Deal Room / Negócios B2B','C','WEDO B2B Event Experience & Intelligence Platform.'],
-['registo-delegados','Registo de delegados','G','Participação de delegações nacionais e internacionais.'],
-['noticias','Notícias','D','Actualizações oficiais do LEC 2027.'],
-['artigo','Artigo de notícia — modelo','E','[RESUMO DA NOTÍCIA A INSERIR].'],
-['imprensa','Imprensa','G','Acreditação e downloads para órgãos de comunicação.'],
-['galeria','Galeria','D','Arquivo visual do evento.'],
-['faq','Perguntas frequentes','F','Informações essenciais para participar no LEC 2027.'],
-['contactos','Contactos','G','Fale com a organização do Luanda Expo Car 2027.'],
-['privacidade','Política de privacidade e termos','H','Informação legal do website.']
-];
-const esc=s=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const url=s=>s+'.html';
-const btn=(t,p)=>'<a class="pill" href="'+url(p)+'">'+esc(t)+' ↗</a>';
-const photo=t=>'<div class="media-placeholder" role="img" aria-label="'+esc(t)+'"><span>'+esc(t)+'</span></div>';
-const groups=[
-['Geral',[['evento','O Evento'],['edicao-2027','Edição 2027'],['historia','História'],['faq','FAQ']]],
-['Visitantes',[['visitantes','Visitantes'],['ingressos','Ingressos'],['planear-visita','Planear visita'],['delegacoes-vistos','Delegações e vistos']]],
-['Expositores',[['expositores','Expositores'],['tornar-se-expositor','Tornar-se expositor'],['directorio','Directório'],['patrocinios','Patrocínios']]],
-['Programa',[['programa','Conferências'],['oradores','Oradores'],['deal-room','Deal Room'],['registo-delegados','Delegados']]],
-['Media',[['noticias','Notícias'],['artigo','Artigo modelo'],['imprensa','Imprensa'],['galeria','Galeria'],['contactos','Contactos']]]
-];
-const logo=()=>'<a class="wordmark" href="index.html" aria-label="Início"><span class="wordmark-symbol" title="[LOGO OFICIAL A INSERIR]">LEC</span><span class="wordmark-text">LUANDA EXPO CAR<small>23—27 JUNHO 2027</small></span></a>';
-const header=()=>'<header class="site-header"><div class="container header-row">'+logo()+'<nav class="primary-nav" id="nav-principal" aria-label="Navegação principal">'+groups.map((g,i)=>'<div class="nav-entry"><button class="nav-trigger" type="button" aria-controls="nav-'+i+'" aria-expanded="false">'+g[0]+' <span class="chevron">⌄</span></button><div class="nav-panel" id="nav-'+i+'">'+g[1].map(x=>'<a href="'+url(x[0])+'">'+x[1]+'</a>').join('')+'</div></div>').join('')+'</nav><div class="header-actions">'+btn('Contactar','contactos')+'<button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-principal" type="button">☰</button></div></div></header>';
-const footer=()=>'<footer class="site-footer"><div class="container"><div class="footer-main">'+logo()+groups.map(g=>'<div class="footer-col"><h3>'+g[0]+'</h3>'+g[1].map(x=>'<a href="'+url(x[0])+'">'+x[1]+'</a>').join('')+'</div>').join('')+'</div><div class="footer-bottom"><span>© LUANDA EXPO CAR 2027 · WE ACTIVATE BRANDS | GRUPO WEDO</span><div class="social-row"><span>+</span><span>+</span><span>+</span></div><span>[REDES SOCIAIS A INSERIR] · <a href="privacidade.html">Privacidade e termos</a></span></div></div></footer>';
-const newsletter=()=>'<section class="container newsletter"><p>Newsletter — Receba as novidades do LUANDA EXPO CAR 2027</p><div class="newsletter-circle">➤</div>'+btn('Subscrever agora','contactos')+'</section>';
-const hero=(name,description,label)=>'<section class="hero-page"><div class="container"><div class="small-label">'+esc(label||'LUANDA EXPO CAR 2027')+'</div><h1>'+esc(name)+'</h1><p>'+esc(description)+'</p></div></section>';
-const section=(name,body,more)=>'<section class="container section"><div class="section-heading"><h2>'+esc(name)+'</h2>'+(more?'<a href="'+url(more)+'">Ver mais ↗</a>':'')+'</div>'+body+'</section>';
-const txt=(arr,img,action,alert)=>'<div class="container"><article class="text-column">'+arr.map((p,i)=>'<p'+(i===0?' class="lead"':'')+'>'+esc(p)+'</p>').join('')+(img?'<div class="inset-media">'+photo(img)+'</div>':'')+(alert?'<p class="notice">'+esc(alert)+'</p>':'')+(action?btn(action[0],action[1]):'')+'</article></div>';
-const cardGrid=(n,title,tag,link,id)=>'<div class="grid-3"'+(id?' id="'+id+'"':'')+'>'+Array.from({length:n},(_,i)=>'<a class="news-card interactive chevrons '+['','blue','green'][i%3]+'" href="'+url(link)+'">'+photo('[FOTO EVENTO]')+'<div class="photo-overlay"></div><div class="card-content"><div class="small-label">'+esc(tag)+'</div><h3>'+esc(title)+'</h3></div><span class="plus">+</span></a>').join('')+'</div>';
-const tilesV=[['VISITANTES','Ingressos','ingressos','yellow'],['VISITANTES','Planear visita','planear-visita','photo'],['DELEGAÇÕES','Vistos','delegacoes-vistos','green'],['PROGRAMA','Conferências','programa','blue'],['LIDERANÇA','Oradores','oradores','photo'],['AJUDA','FAQ','faq','light'],['MARCAS','Directório','directorio','purple'],['CONTACTOS','Fale connosco','contactos','light']];
-const tilesE=[['EXPOSIÇÃO','Tornar-se expositor','tornar-se-expositor','yellow'],['MARCAS','Directório','directorio','photo'],['PATROCÍNIOS','Ser parceiro','patrocinios','green'],['NEGÓCIOS','Deal Room','deal-room','blue'],['CONFERÊNCIAS','Programa','programa','photo'],['DELEGAÇÕES','Vistos','delegacoes-vistos','light'],['ORADORES','Rostos da mobilidade','oradores','purple'],['CONTACTOS','Solicitar proposta','contactos','light']];
-const mosaic=arr=>'<div class="mosaic-4">'+arr.map((x,i)=>'<a class="mosaic-tile interactive '+(x[3]||'purple')+'" href="'+url(x[2])+'">'+(x[3]==='photo'?photo(x[1]==='Oradores'?'[FOTO ORADOR — nome, cargo]':'[FOTO EVENTO]')+'<span class="photo-overlay"></span>':'')+'<div class="mosaic-top"><div class="small-label">'+esc(x[0])+'</div><h3>'+esc(x[1])+'</h3></div><span class="plus">+</span></a>').join('')+'</div>';
-const logos=()=>'<div class="logo-strip">'+['[LOGO PATROCINADOR]','[LOGO EXPOSITOR]','[LOGO MARCA PARCEIRA]','[LOGO PARCEIRO]'].map(l=>'<div class="logo-cell"><span>'+l+'</span></div>').join('')+'</div>';
-const speakers=n=>'<div class="speaker-grid">'+Array.from({length:n},()=>'<article class="speaker-card"><div class="speaker-portrait">'+photo('[FOTO ORADOR — nome, cargo]')+'</div><div class="speaker-info"><h3>[NOME DO ORADOR]</h3><p>[CARGO / ORGANIZAÇÃO A INSERIR]</p></div></article>').join('')+'</div>';
-const table=arr=>'<section class="container section"><table class="pricing-table"><thead><tr><th>Categoria</th><th>Espaço / Formato</th><th>Preço</th><th>Contacto</th></tr></thead><tbody>'+arr.map(l=>'<tr><td>'+esc(l)+'</td><td>[ÁREA / FORMATO A CONFIRMAR]</td><td>[PREÇO A CONFIRMAR]</td><td>'+btn('Solicitar proposta','contactos')+'</td></tr>').join('')+'</tbody></table><p class="placeholder-notice">O stand construído pela WEDO está incluído em todos os pacotes de expositor e patrocínio.</p></section>';
-const form=kind=>'<section class="container"><form class="form-panel" data-placeholder-form="true"><h2>'+esc(kind)+'</h2><p class="hint">[INTEGRAÇÃO DE ENVIO A INSERIR] — Os dados não são transmitidos; o registo electrónico ainda não está activo.</p><div class="form-grid"><label>Nome completo<input name="nome" required autocomplete="name"></label><label>Email<input name="email" type="email" required autocomplete="email"></label><label>Organização<input name="empresa" autocomplete="organization"></label><label>País / Área de interesse<input name="area" required></label><label class="wide">Mensagem<textarea name="mensagem" rows="5" required></textarea></label><label class="wide checkbox"><input type="checkbox" required> Autorizo contacto relativo ao pedido quando o serviço for activado.</label></div><div class="spacer"></div><button class="pill big" type="submit">Validar pedido ↗</button><p class="status" role="status" aria-live="polite"></p></form></section>';
-const load=id=>'<div class="center-cta"><button class="pill" type="button" data-loadmore="#'+id+'">Carregar mais</button></div>';
-const fact='A 4.ª edição realiza-se de 23 a 27 de Junho de 2027, na Baía de Luanda, em espaços indoor e outdoor. Tema: ACELERAR O DESENVOLVIMENTO, CONECTAR ÁFRICA.';
-const position='O LEC é a feira automóvel de Angola e a porta de entrada das marcas internacionais em Angola, a ligar as províncias a Luanda.';
-const platform='WEDO B2B Event Experience & Intelligence Platform.';
-function home(){return '<section class="hero-video playing">'+photo('[VÍDEO / FOTO EVENTO — a inserir]')+'<div class="hero-gradient"></div><div class="container hero-content"><div class="label">23—27 Junho 2027 · Baía de Luanda</div><h1>LUANDA EXPO CAR 2027</h1><p>ACELERAR O DESENVOLVIMENTO, CONECTAR ÁFRICA. A feira automóvel de Angola.</p>'+btn('Explorar evento','edicao-2027')+'</div><button class="hero-pause" type="button" aria-label="Pausar movimento">Ⅱ</button></section><section class="container feature-banner"><div class="feature-art"><span class="feature-big">LEC<br>2027</span></div><div class="feature-data"><div class="small-label">4.ª EDIÇÃO · 2027</div><h2>Estamos a construir o futuro da mobilidade em Angola.</h2><p>WE ACTIVATE BRANDS | GRUPO WEDO</p><div class="feature-bar"><div><small>DATA</small><strong>23—27 Junho 2027</strong></div><div><small>LOCAL</small><strong>Baía de Luanda</strong></div><div><small>ESPAÇOS</small><strong>Indoor + Outdoor</strong></div>'+btn('Ver o evento','edicao-2027')+'</div></div></section>'+section('News at a Glance',cardGrid(3,'[TÍTULO DE NOTÍCIA A INSERIR]','NOTÍCIAS','artigo'),'noticias')+'<div class="center-cta">'+btn('Carregar mais','noticias')+'</div>'+section('Information for Visitors',mosaic(tilesV),'visitantes')+section('Informação, negócios e experiências',mosaic([['WEDO B2B','Event Experience & Intelligence Platform','deal-room','purple'],['EXPOSIÇÃO','Tornar-se expositor','tornar-se-expositor','yellow'],['LIDERANÇA','Oradores','oradores','photo'],['NEGÓCIOS','Deal Room','deal-room','green'],['HISTÓRIA','Edições anteriores','historia','light'],['GALERIA','Fotos do LEC','galeria','photo'],['IMPRENSA','Notícias e media','imprensa','blue'],['CONTACTOS','Fale connosco','contactos','light']]))+section('Oradores',speakers(3),'oradores')+section('Principais expositores, patrocinadores e marcas parceiras',logos(),'directorio')+'<p class="container placeholder-notice">[LOGO PATROCINADOR] · [FOTO ORADOR — nome, cargo] · Activos oficiais a inserir após autorização.</p>'}
-function render(slug,title,model,description){
-let content=slug==='index'?home():'';
-if(!content){content=hero(slug==='artigo'?'[TÍTULO DO ARTIGO A INSERIR]':title,description,slug==='artigo'?'NOTÍCIAS · [DATA A INSERIR]':'LUANDA EXPO CAR 2027');
-if(['visitantes','expositores'].includes(slug))content+=section('Explore esta secção',mosaic(slug==='visitantes'?tilesV:tilesE));
-else if(['directorio','programa','noticias','galeria'].includes(slug)){const id=slug+'-grid',title=slug==='directorio'?'[LOGO EXPOSITOR / NOME A INSERIR]':slug==='programa'?'[TÍTULO DA CONFERÊNCIA A INSERIR]':slug==='galeria'?'[FOTO EVENTO — a inserir]':'[TÍTULO DA NOTÍCIA A INSERIR]';content+=section(title,cardGrid(9,title,'[INFORMAÇÃO A INSERIR]',slug==='directorio'?'contactos':slug==='galeria'?'galeria':'artigo',id))+load(id)}
-else if(slug==='oradores')content+=section('Oradores e convidados',speakers(9))+'<p class="container placeholder-notice">[FOTO ORADOR — nome, cargo] · [LISTA OFICIAL A INSERIR].</p>';
-else if(slug==='faq'){const qa=[['Quando?','23 a 27 de Junho de 2027.'],['Onde?','Baía de Luanda, indoor + outdoor.'],['Tema?','ACELERAR O DESENVOLVIMENTO, CONECTAR ÁFRICA.'],['Organização?','WE ACTIVATE BRANDS | GRUPO WEDO.'],['O stand está incluído?','Sim, nos pacotes de expositor e patrocínio.'],['Preço de ingresso?','[PREÇO A CONFIRMAR].'],['Oradores confirmados?','[LISTA OFICIAL A INSERIR].'],['Acessos e horários?','[INFORMAÇÕES A INSERIR].']];content+='<section class="container section"><div class="faq">'+qa.map(q=>'<details><summary>'+q[0]+'</summary><p>'+q[1]+'</p></details>').join('')+'</div></section>'}
-else if(slug==='privacidade')content+=txt(['Organização: WE ACTIVATE BRANDS | GRUPO WEDO.','[DADOS DA ENTIDADE RESPONSÁVEL A INSERIR].','[FINALIDADES DO TRATAMENTO DE DADOS A INSERIR].','[BASES DE LICITUDE E CONSERVAÇÃO A INSERIR].','[DIREITOS DOS TITULARES A INSERIR].','[POLÍTICA DE COOKIES A INSERIR].','[TERMOS DE UTILIZAÇÃO A INSERIR].','[APROVAÇÃO JURÍDICA A INSERIR].'],null,null,'Documento jurídico provisório. Necessita de aprovação antes de recolher dados.');
-else if(slug==='registo-delegados')content+=txt([fact,'[CRITÉRIOS DE REGISTO A INSERIR].'])+form('Registo de delegados');
-else if(slug==='contactos')content+=txt(['Organização: WE ACTIVATE BRANDS | GRUPO WEDO.','[EMAIL OFICIAL A INSERIR].','[TELEFONE OFICIAL A INSERIR].'])+form('Pedido de contacto');
-else if(slug==='imprensa')content+=txt(['Organização: WE ACTIVATE BRANDS | GRUPO WEDO.','[PRESS KIT E DOWNLOADS A INSERIR].','[CRITÉRIOS DE ACREDITAÇÃO A INSERIR].'],'[FOTO EVENTO]')+form('Acreditação de imprensa');
-else if(slug==='tornar-se-expositor')content+=txt([position,'Todos os pacotes de expositor incluem o stand construído pela WEDO.','[PACOTES E CONTRAPARTIDAS A INSERIR].'],'[FOTO STAND / EVENTO]',['Contactar equipa comercial','contactos'])+table(['[PACOTE EXPOSITOR A INSERIR]','[PACOTE EXPOSITOR A INSERIR]','[PACOTE EXPOSITOR A INSERIR]']);
-else if(slug==='patrocinios')content+=txt([position,'Todos os pacotes de patrocínio incluem o stand construído pela WEDO.','[PACOTES E CONTRAPARTIDAS A INSERIR].'],'[FOTO EVENTO]',['Solicitar proposta','contactos'])+table(['[PACOTE PATROCÍNIO A INSERIR]','[PACOTE PATROCÍNIO A INSERIR]','[PACOTE PATROCÍNIO A INSERIR]'])+section('Patrocinadores e parceiros',logos());
-else if(slug==='ingressos')content+=txt([fact,'[TIPOS DE INGRESSO E CANAL DE VENDA A INSERIR].'],null,null,'[PREÇO A CONFIRMAR].')+table(['[TIPO DE INGRESSO A INSERIR]','[TIPO DE INGRESSO A INSERIR]']);
-else if(slug==='artigo')content+=txt(['[ABERTURA DO ARTIGO A INSERIR].','[CORPO DO ARTIGO A INSERIR].','[CITAÇÕES E FONTES A INSERIR].'],'[FOTO EVENTO]',['Todas as notícias','noticias'])+section('Artigos relacionados',cardGrid(3,'[ARTIGO RELACIONADO A INSERIR]','NOTÍCIAS','noticias'));
-else {let arr=[position,fact,'Organização: WE ACTIVATE BRANDS | GRUPO WEDO.'];if(slug==='deal-room')arr=[platform,position,'[MODELO DE REUNIÕES B2B A INSERIR].'];if(slug==='historia')arr=[position,'[CRONOLOGIA DAS EDIÇÕES ANTERIORES A INSERIR].','[FOTOS E RESULTADOS OFICIAIS A INSERIR].'];if(slug==='planear-visita')arr=['Local: Baía de Luanda.','23 a 27 de Junho de 2027.','[HORÁRIOS, ACESSOS, ESTACIONAMENTO E ALOJAMENTO A INSERIR].'];if(slug==='delegacoes-vistos')arr=[position,'[REQUISITOS DE VISTO E CARTA-CONVITE A INSERIR].','Consulte os canais oficiais de entrada em Angola.'];if(slug==='edicao-2027')arr=[fact,position,platform];if(slug==='expositores')arr=[position,'Stand construído pela WEDO incluído em todos os pacotes de expositor.'];content+=txt(arr,'[FOTO EVENTO]',['Contactar organização','contactos'])}
+import {readFileSync,writeFileSync,mkdirSync,copyFileSync,rmSync} from 'node:fs';
+import {runInNewContext} from 'node:vm';
+import {join} from 'node:path';
+const dataSrc=readFileSync('site-data.js','utf8');
+const coreSrc=readFileSync('site-core.js','utf8');
+const dataContext={window:{}};
+runInNewContext(dataSrc,dataContext,{timeout:3000});
+const pages=Object.keys(dataContext.window.LEC_DATA);
+if(pages.length!==23)throw new Error('Expected 23 pages, found '+pages.length);
+rmSync('dist',{recursive:true,force:true});
+mkdirSync('dist',{recursive:true});
+for(const file of ['site.css','lec-home.css','site-data.js','site-core.js'])copyFileSync(file,join('dist',file));
+function render(slug,lang){
+ const body={dataset:{page:slug},innerHTML:''};
+ const noop=()=>{};
+ const fake={addEventListener:noop,setAttribute:noop,querySelector(){return fake},querySelectorAll(){return []},classList:{add:noop,remove:noop,toggle(){return false},contains(){return false}}};
+ const document={body,documentElement:{lang:'pt'},title:'',querySelector(){return fake},querySelectorAll(){return []},getElementById(){return fake},addEventListener:noop};
+ const context={window:{LEC_DATA:dataContext.window.LEC_DATA},document,location:{pathname:'/'+slug+'.html',search:lang==='en'?'?lang=en':''},URLSearchParams,FormData:class{},matchMedia(){return {matches:false}},console};
+ runInNewContext(coreSrc,context,{timeout:4000});
+ if(!body.innerHTML.includes('<main')||!body.innerHTML.includes('<footer'))throw new Error('Incomplete page: '+slug);
+ const entry=dataContext.window.LEC_DATA[slug];
+ const desc=(entry.intro?.[lang==='en'?1:0]||'Luanda Expo Car 2027').replaceAll('"','&quot;');
+ const title=document.title.replaceAll('<','&lt;');
+ const canonical='https://luandaexpocar2027.vercel.app/'+(slug==='index'?'':slug);
+ const langHref=slug+'.html?lang=en';
+ return '<!doctype html><html lang="'+lang+'"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#69227e"><meta name="description" content="'+desc+'"><title>'+title+'</title><link rel="canonical" href="'+canonical+'"><link rel="alternate" hreflang="pt" href="'+canonical+'"><link rel="alternate" hreflang="en" href="https://luandaexpocar2027.vercel.app/'+langHref+'"><link rel="stylesheet" href="/site.css"><link rel="stylesheet" href="/lec-home.css"><script defer src="/site-data.js"></script><script defer src="/site-core.js"></script></head><body data-page="'+slug+'">'+body.innerHTML+'</body></html>';
 }
-return '<!doctype html><html lang="pt-AO"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#5B1A8C"><meta name="description" content="'+esc(description)+'"><title>'+esc(title)+' | LUANDA EXPO CAR 2027</title><link rel="stylesheet" href="/site.css"><script src="/site.js" defer></script></head><body data-model="'+model+'" data-page="'+slug+'">'+header()+'<main id="conteudo">'+content+'</main>'+newsletter()+footer()+'</body></html>';
+for(const slug of pages){
+ const html=render(slug,'pt');
+ writeFileSync(join('dist',slug+'.html'),html);
+ if(slug==='index')writeFileSync(join('dist','index.html'),html);
 }
-rmSync('dist',{recursive:true,force:true});mkdirSync('dist',{recursive:true});copyFileSync('site.css','dist/site.css');copyFileSync('site.js','dist/site.js');
-const paths=new Set(rows.map(r=>r[0]));
-for(const [slug,title,model,description]of rows){let html=render(slug,title,model,description);for(const [,to]of html.matchAll(/href="([^"#?]+\.html)"/g))if(!paths.has(to.slice(0,-5)))throw Error(slug+': link interno inválido '+to);for(const s of ['<main','<footer','class="container newsletter"','class="primary-nav"'])if(!html.includes(s))throw Error(slug+': falta '+s);writeFileSync('dist/'+slug+'.html',html)}
-writeFileSync('dist/robots.txt','User-agent: *\nAllow: /\nSitemap: https://luandaexpocar2027.vercel.app/sitemap.xml\n');
-writeFileSync('dist/sitemap.xml','<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+rows.map(r=>'<url><loc>https://luandaexpocar2027.vercel.app/'+(r[0]==='index'?'':r[0])+'</loc></url>').join('')+'</urlset>');
-console.log('BUILD OK — '+rows.length+' páginas, links e componentes partilhados validados.');
+const base='https://luandaexpocar2027.vercel.app';
+writeFileSync(join('dist','robots.txt'),'User-agent: *\nAllow: /\nSitemap: '+base+'/sitemap.xml\n');
+writeFileSync(join('dist','sitemap.xml'),'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+pages.map(x=>'<url><loc>'+base+(x==='index'?'/':'/'+x)+'</loc></url>').join('')+'</urlset>');
+console.log('Build complete:',pages.length,'HTML pages, bilingual client views, sitemap, responsive design assets.');

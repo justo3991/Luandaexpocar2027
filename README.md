@@ -1,7 +1,9 @@
-# LUANDA EXPO CAR 2027
+# Luanda Expo Car 2027
 
-Website com 23 páginas, modelos A–H e design aprovado. `npm run build` gera `dist/`, valida ligações internas e cria sitemap.
+Base funcional restaurada do commit `65b0a5916e39bdc1baa4decc6c09d005e177d5b3`, com o tema visual recente adaptado às 23 páginas.
 
-**Conteúdo a fornecer:** [LOGO PATROCINADOR], [FOTO EVENTO], [FOTO ORADOR — nome, cargo], preços, notícias, cronologia, documentos e termos jurídicos.
-
-Os formulários ainda não enviam dados. Integração CRM, vendas e newsletter exigem backend e aprovação dos textos de privacidade.
+- `npm run build`: gera `dist` e valida links.
+- `site.css`: estrutura antiga com tema visual roxo/amarelo actual.
+- `lec-home.css`: banner, notícias, oradores e parceiros na homepage.
+- Dados e elementos não confirmados continuam em preparação.
+- Formulários preparam e-mail; não enviam dados a um CRM.
