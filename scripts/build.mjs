@@ -9,7 +9,7 @@ const pages=Object.keys(dataContext.window.LEC_DATA);
 if(pages.length!==25)throw new Error('Expected 25 pages, found '+pages.length);
 rmSync('dist',{recursive:true,force:true});
 mkdirSync('dist',{recursive:true});
-for(const file of ['site.css','lec-home.css','site-data.js','site-core.js','ceo-justo-eliseu.webp'])copyFileSync(file,join('dist',file));
+for(const file of ['site.css','lec-home.css','site-data.js','site-core.js','ceo-justo-eliseu.webp','lec-logo-official.png'])copyFileSync(file,join('dist',file));
 function render(slug,lang){
  const body={dataset:{page:slug},innerHTML:''};
  const noop=()=>{};
